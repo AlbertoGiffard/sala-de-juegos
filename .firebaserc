@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sala-juegos-alberto-giffard": {
+      "hosting": {
+        "sala-juegos": [
+          "sala-juegos-alberto-giffard"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sala-juegos-alberto-giffard"
+  }
+}
