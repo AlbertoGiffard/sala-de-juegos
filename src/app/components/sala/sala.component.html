@@ -1,0 +1,21 @@
+<div class="sala">
+    <div class="container">
+        <h1 class="text-center title">
+            Lista de Juegos
+        </h1>
+        <div class="row mt-5">
+            <div class="col-lg-3 mb-5" *ngFor="let juego of juegos">
+                <div class="box shadow-sm">
+                    <img src="{{juego.image}}">
+                    <h4 class="mt-2">
+                        {{juego.name}}
+                    </h4>
+                    <p class="mt-2">
+                        {{juego.description}}
+                    </p>
+                    <button class="btn btn-primary btn-md mt-2">Jugar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

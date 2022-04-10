@@ -1,5 +1,6 @@
 import { transformAll } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor(private authService: AuthService, private router: Router) { 
+  constructor(private authService: AuthService, private router: Router, private auth: Auth) { 
     
   }
 
@@ -45,12 +46,21 @@ export class LoginComponent implements OnInit {
 
       if (user) {
         //redirect to home
-        this.router.navigate(['/home']);
+        this.router.navigate(['/sala']);
+        console.log(this.auth.currentUser?.metadata.lastSignInTime);
+        
       }
     } catch (error) {
       console.log("Hubo un error al intentar loguear");
       
     }
+  }
+
+  usuarioPreCargado(){
+    this.loginForm.setValue({
+      email: 'batman@gmail.com',
+      password: '123456'
+    }) 
   }
 
 }

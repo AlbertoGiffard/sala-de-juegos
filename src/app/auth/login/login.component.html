@@ -50,7 +50,7 @@
         <div class="card">
             <div class="card-body">
                 <h1 class="text-center">Login</h1>
-                <form [formGroup] = "loginForm" (ngSubmit) = "onLogin()">
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                     <div class="form-group">
                         <label for="email">
                             Email
@@ -70,13 +70,22 @@
                 </form>
                 <div class="form-group mt-3">
                     <p>
-                        Eres nuevo? 
+                        Eres nuevo?
                         <a [routerLink]="['/register']">
                             Registrate
                         </a>
                     </p>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2 mx-auto mt-5">
+        <div class="card">
+            <a class="btn btn-warning btn.lg w-80" (click)="usuarioPreCargado()">
+                Usuario Cargado
+            </a>
         </div>
     </div>
 </div>

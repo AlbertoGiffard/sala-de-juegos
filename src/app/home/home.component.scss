@@ -1,0 +1,35 @@
+.home img{
+    width: 100%;
+    height: 850px;
+    object-position: center;
+    object-fit: cover;
+}
+
+.homecontent{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+}
+
+.homecontent h1{
+    font-size: 60px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.homecontent a{
+    margin-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 650px){
+    .homecontent h1{
+        font-size: 40px;
+    }
+    .homecontent a{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+

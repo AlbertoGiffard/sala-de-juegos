@@ -14,7 +14,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 import { AuthService } from './auth/services/auth.service';
-import { AboutComponent } from './components/about/about.component';
 
 
 
@@ -22,8 +21,7 @@ import { AboutComponent } from './components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    AboutComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

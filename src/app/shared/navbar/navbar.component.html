@@ -5,28 +5,33 @@
         <span class="navbar-toggler-icon"></span>
       </button>
   
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav me-auto">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link active" [routerLink]="['/']">
               Home
             </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/about']">
+              About
+            </a>
           </li>          
         </ul>
-        <ul class="navbar-nav mx-auto" *ngIf="user$ | async as user;else login">                   
+        <ul class="navbar-nav mr-auto" *ngIf="user$ | async as user;else login">                   
           <li class="nav-item" *ngIf = "user">
             <a class="nav-link" (click)="onLogout()">
               Logout
             </a>
           </li>                    
           <li class="nav-item" *ngIf = "user">
-            <a class="nav-link">
+            <label class="nav-link">
               {{ user?.email }}
-            </a>
+            </label>
           </li>         
         </ul>
         <ng-template #login>
-          <ul class="navbar-nav mx-auto"> 
+          <ul class="navbar-nav mr-auto"> 
             <li class="nav-item">
               <a class="nav-link"[routerLink]="['/login']">
                 Login
