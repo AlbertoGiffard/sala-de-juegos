@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   async onLogout(){
     try {
       await this.authService.logout();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login']);      
     } catch (error) {
       console.log("Hubo un error al desloguearse");      
     }    

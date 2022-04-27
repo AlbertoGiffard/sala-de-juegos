@@ -1,0 +1,44 @@
+.imageMayorMenor{
+    width: 300px;
+    height: 400px;
+}
+
+.container{
+    background-color: #f6952d;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 50px;
+    border: 2px solid black;
+    padding-bottom: 10px;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.containerImg{
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.btnMayor{
+    margin-right: 10px;
+}
+
+.btnMenor{
+    margin-left: 10px;
+}
+
+.containerChoice{
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.choices{
+    text-align: center;
+    justify-content: space-around;
+}
+
+.txt-25{
+    font-size: 20px;
+}

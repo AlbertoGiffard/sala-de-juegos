@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="containerStats">
+        <div class="lifes">
+            <label class="txt-25 display-4">Cantidad de vidas: 
+                <strong class="font-weight-bold">{{lifes}}</strong>
+            </label>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="points">
+                <label class="txt-25 display-4">Puntos: 
+                    <strong class="font-weight-bold">{{points}}</strong>
+                </label>
+            </div>
+            <div class="firstCard">
+                <label class="txt-25 display-4" *ngIf="started; else game">Carta Actual: 
+                    <strong class="font-weight-bold">{{currentCard}}</strong>
+                </label>
+                <ng-template #game>
+                    <label class="txt-25 display-4" #game>Carta Inicial: 
+                        <strong class="font-weight-bold">{{currentCard}}</strong>
+                    </label>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="containerImg">
+        <img src={{image}} class="imageMayorMenor">
+    </div>
+    <div class="containerChoice">
+        <div class="choices">
+            <strong class="display-4 txt-25">La siguiente carta sera:</strong>
+            <br>
+            <br>
+            <button class="btn btnMayor btn-outline-primary btn-lg" (click)="pressPlus()">
+                Mayor
+            </button>
+            <button class="btn btnMenor btn-outline-secondary btn-lg" (click)="pressLess()">
+                Menor
+            </button>
+        </div>
+    </div>
+</div>

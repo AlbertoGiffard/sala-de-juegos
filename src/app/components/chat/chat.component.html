@@ -1,0 +1,31 @@
+<div *ngIf = "userLogged && !showChat" class="chatIconContainer" (click)="showChat=true">
+    <img src="https://cdn-icons-png.flaticon.com/512/953/953810.png" class="chatIcon">
+</div>
+
+<div class="card text-center cardContainer" *ngIf = "userLogged && showChat">
+    <div class="card-header">
+        CHAT
+        <div class="closeIcon" (click)="showChat=false">X</div>
+    </div>
+    <div class="card-body containerMessages">
+        <div class="containerMessages h-100" id="containerMessages">
+            <div *ngFor="let message of messages">
+                <p class="p-2 msg" [ngClass]="(userLogged.uid == message.transmitter) ? 'sended' : 'received' ">
+                    {{message.text}}
+                </p>
+                <p  class="hourMessage p-2">
+                    {{message.user}} - {{message.time}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <form class="card-footer text-muted input-group" (ngSubmit) = "sendMessage()">
+        <input type="text" class="form-control" placeholder="ingrese su mensaje" [(ngModel)] = "newMessage" [ngModelOptions]="{standalone: true}">
+        <div class="input-group-append" (click)="sendMessage()">
+            <span class="input-group-text" id="basic-addon2">
+                <img class="imgSend" src="https://cdn-icons.flaticon.com/png/512/3682/premium/3682321.png?token=exp=1650825234~hmac=d5375ca5d7ec7378d1638f58a4d9a080"
+                    style="width: 20px;">
+            </span>
+        </div>
+    </form>
+</div>

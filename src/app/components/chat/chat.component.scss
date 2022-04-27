@@ -1,0 +1,93 @@
+.cardContainer {
+    width: 450px;
+    height: 500px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.card-header {
+    background-color: rgb(12, 221, 36);
+    color: black;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 0.5 rem;
+    background-image: url("https://wallpaperaccess.com/full/1288076.jpg");
+    background-size: cover;
+}
+
+.imgSend:active {
+    transform: scale(0.8);
+}
+
+.sended {
+    display: block;
+    float: right;
+    background-color: teal;
+    color: white;
+    min-width: 50.01%;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.received {
+    display: block;
+    float: left;
+    background-color: gray;
+    color: white;
+    min-width: 50.01%;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.containerMessages {
+    padding: 0.3rem;
+    overflow-y: scroll;
+}
+
+.containerMessages::-webkit-scrollbar {
+    display: none;
+}
+
+.chatIconContainer {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    background-color: rgb(12, 221, 36);
+    border-radius: 100%;
+    box-shadow: 0 0 10px 2px rgb(56, 54, 54);
+}
+
+.chatIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.closeIcon {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+}
+
+.hourMessage {
+    color: rgb(179, 170, 170);
+    font-weight: bold;
+    padding-top: 4px;
+}
+
+.divChat {
+    display: inline-block;
+}
+
+.divChat p {
+    display: inline-block;
+}

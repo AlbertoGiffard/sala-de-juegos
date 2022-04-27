@@ -23,7 +23,10 @@ const routes: Routes = [
     path: 'profile', loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule)
   },
   { path: 'about', loadChildren: () => import('./components/about/about.module').then(m => m.AboutModule) },
-  { path: 'sala', loadChildren: () => import('./components/sala/sala.module').then(m => m.SalaModule) },
+  { 
+    path: 'sala', 
+    loadChildren: () => import('./components/sala/sala.module').then(m => m.SalaModule) 
+  },
   {
     path: '**',
     redirectTo: ''

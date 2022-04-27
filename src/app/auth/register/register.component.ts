@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   })
 
   constructor(private authService: AuthService, private router: Router) {
-    this.errorMessage = "No se pudo crear el usuario de forma correcta verifique los datos."
+    this.errorMessage = "No se pudo crear el usuario de forma correcta verifique los datos.";
   }
 
   ngOnInit(): void {
