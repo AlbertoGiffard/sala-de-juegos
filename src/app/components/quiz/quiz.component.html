@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="card text-white bg-info m-3 p-3">
+        <div class="row display-4 txt-30">
+            <div class="col">Puntaje total ahorcado: {{topScoreAhorcado}}</div>
+            <div class="col">Puntaje total Mayor y menor: {{topScoreMyM}}</div>
+            <div class="w-100"></div>
+            <div class="col">Puntaje total Preguntados: {{topScorePreguntados}}</div>
+            <div class="col">Puntaje total Tetris: {{topScorePropio}}</div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8 order-md-1">
+            <h2 class="mb-3">Encuesta</h2>
+            <form class="needs-validation" [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">Nombre</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName"
+                            formControlName="firstName" placeholder="nombre" value="" required>
+                        <small class="invalid"
+                            *ngIf="form.controls['firstName'].errors?.['required'] && form.controls['firstName'].touched">
+                            El nombre es requerido.
+                        </small>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Apellido</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName"
+                            placeholder="apellido" value="" required>
+                        <small class="invalid"
+                            *ngIf="form.controls['lastName'].errors?.['required'] && form.controls['lastName'].touched">
+                            El apellido es requerido.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="age">Edad</label>
+                    <input type="number" class="form-control" id="age" name="age" formControlName="age"
+                        placeholder="21" required>
+                    <small class="invalid" *ngIf="form.controls['age'].errors?.['required'] && form.controls['age'].touched">
+                        Ingrese una edad válida.
+                    </small>
+                    <small class="invalid" *ngIf="form.controls['age'].errors?.['min'] && form.controls['age'].touched">No puedes ser menor a 18 años</small>
+                    <small class="invalid" *ngIf="form.controls['age'].errors?.['max'] && form.controls['age'].touched">No puedes ser mayor a 99 años</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone">Teléfono</label>
+                    <input type="number" class="form-control" id="phone" name="phone" formControlName="phone"
+                        placeholder="1123232323" required>
+                    <small class="invalid"
+                        *ngIf="form.controls['phone'].errors?.['required'] && form.controls['phone'].touched">
+                        Ingrese un número válido
+                    </small>
+                    <small class="invalid" *ngIf="form.controls['phone'].errors?.['max'] && form.controls['phone'].touched">No puedes ser mayor a 10 dígitos</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="mb-3">Juego favorito</label>
+
+                    <div class="d-flex justify-content-around flex-wrap form-group">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1"
+                                class="custom-control-input" formControlName="favoriteGame" value="Ahorcado">
+                            <label class="custom-control-label" >Ahorcado</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2"
+                                class="custom-control-input" formControlName="favoriteGame" value="mayor">
+                            <label class="custom-control-label" >Mayor y menor</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline3"
+                                class="custom-control-input" formControlName="favoriteGame" value="pregunta">
+                            <label class="custom-control-label" >Preguntados</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline4"
+                                class="custom-control-input" formControlName="favoriteGame" value="tetris">
+                            <label class="custom-control-label" >Tetris</label>
+                        </div>
+                    </div>
+                    <small class="invalid"
+                        *ngIf="form.controls['favoriteGame'].touched && form.controls['favoriteGame'].errors?.['required']">
+                        Alguna opción es requerida.
+                    </small>
+                </div>
+                <hr class="mb-4">
+                <div class="mb-3">
+                    <label for="phone" class="mb-3">¿Qué has hecho ya?</label>
+                    <div class="d-flex justify-content-around flex-wrap">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkAbout"
+                                formControlName="checkAbout" value="Lei la pestaña about">
+                            <label class="custom-control-label" for="same-address">Lei la pestaña about</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkChat"
+                                formControlName="checkChat" value="Escribi por el chat">
+                            <label class="custom-control-label" for="save-info">Escribi por el chat</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkGames"
+                                formControlName="checkGames" value="He ido a la sala de juegos">
+                            <label class="custom-control-label" for="save-info">He ido a la sala de juegos</label>
+                        </div>
+                    </div>
+                    <small class="invalid"
+                        *ngIf="form.controls['whatIDo'].errors?.['required'] && form.controls['whatIDo'].touched">
+                        Alguna opción es requerida.
+                    </small>
+                </div>
+                <hr class="mb-4">
+                <div class="row form-group">
+                    <label for="review">Dejanos un comentario para seguir mejorando</label>
+                    <textarea class="form-control" id="review" rows="3" formControlName="text"></textarea>
+                    <small class="invalid"
+                        *ngIf="form.controls['text'].errors?.['required'] && form.controls['text'].touched">
+                        Alguna comentario es requerido.
+                    </small>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>

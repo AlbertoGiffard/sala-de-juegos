@@ -1,0 +1,40 @@
+<div class="container p-3 mt-3">
+    <div class="d-flex justify-content-around">
+        <div class="game">
+            <tetris-core #game (lineCleared)="onLineCleared()" (gameOver)="lose()"></tetris-core>
+        </div>
+        <div class="w-50">
+            <div class="card text-white bg-info mb-3  w-100">
+                <div class="card-header display-3 text-center">TETRIS</div>
+                <div class="card-body">
+                    <span class="card-title txt-25">Cantidad de puntos historicos:
+                        <strong class="font-weight-bold">{{topScore}}</strong>
+                    </span>
+                    <br>
+                    <br>
+                    <br>
+                    <span class="card-text txt-25">Puntos partida actual: {{points}}</span>
+                </div>
+            </div>
+            <div class="card text-white bg-info d-flex">
+                <div class="d-flex flex-row justify-content-around m-4">
+                    <div>
+                        <button (click)="game.actionStart()" class="btn btn-success">Iniciar</button>
+                    </div>
+                    <div>
+                        <button (click)="game.actionReset()"  class="btn btn-danger">Reset</button>                        
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-around">
+                    <button (click)="game.actionLeft()" class="btn btn-info btn-lg">Izquierda</button>
+                    <button (click)="game.actionRotate()" class="rounded-circle p- btn btn-info btn-lg">Rotar</button>
+                    <button (click)="game.actionRight()" class="btn btn-info btn-lg">Derecha</button>
+                </div>
+                <div class="justify-content-center text-center m-4">
+                    <button (click)="game.actionDown()" class="btn btn-info btn-lg">Abajo</button>
+                </div>                
+                <!-- <button (click)="game.actionStop()" class="btn btn-danger">Stop</button> -->
+            </div>
+        </div>
+    </div>
+</div>

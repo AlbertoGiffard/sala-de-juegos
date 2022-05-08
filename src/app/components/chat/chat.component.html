@@ -9,12 +9,12 @@
     </div>
     <div class="card-body containerMessages">
         <div class="containerMessages h-100" id="containerMessages">
-            <div *ngFor="let message of messages">
-                <p class="p-2 msg" [ngClass]="(userLogged.uid == message.transmitter) ? 'sended' : 'received' ">
-                    {{message.text}}
+            <div *ngFor="let msg of messages">
+                <p class="p-2 msg" [ngClass]="(userLogged.uid == msg.uid) ? 'sended' : 'received' ">
+                    {{msg.message}}
                 </p>
                 <p  class="hourMessage p-2">
-                    {{message.user}} - {{message.time}}
+                    {{msg.user}} - {{msg.hour}}
                 </p>
             </div>
         </div>
@@ -23,7 +23,7 @@
         <input type="text" class="form-control" placeholder="ingrese su mensaje" [(ngModel)] = "newMessage" [ngModelOptions]="{standalone: true}">
         <div class="input-group-append" (click)="sendMessage()">
             <span class="input-group-text" id="basic-addon2">
-                <img class="imgSend" src="https://cdn-icons.flaticon.com/png/512/3682/premium/3682321.png?token=exp=1650825234~hmac=d5375ca5d7ec7378d1638f58a4d9a080"
+                <img class="imgSend" src="https://cdn-icons-png.flaticon.com/512/786/786407.png"
                     style="width: 20px;">
             </span>
         </div>

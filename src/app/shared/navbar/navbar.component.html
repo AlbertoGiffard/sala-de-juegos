@@ -20,6 +20,11 @@
         </ul>
         <ul class="navbar-nav mr-auto" *ngIf="user$ | async as user;else login">                   
           <li class="nav-item" *ngIf = "user">
+            <a class="nav-link" [routerLink]="['/quiz']">
+              Quiz
+            </a>
+          </li>                    
+          <li class="nav-item" *ngIf = "user">
             <a class="nav-link" (click)="onLogout()">
               Logout
             </a>
@@ -27,14 +32,14 @@
           <li class="nav-item" *ngIf = "user">
             <label class="nav-link">
               <!-- {{ user?.email }} -->
-              {{ user.displayName ? user.displayName : user.email }}
+              {{ user.firstName ? user.firstName : user.email }}
             </label>
           </li>         
         </ul>
         <ng-template #login>
           <ul class="navbar-nav mr-auto"> 
             <li class="nav-item">
-              <a class="nav-link"[routerLink]="['/login']">
+              <a class="nav-link" [routerLink]="['/login']">
                 Login
               </a>
             </li> 

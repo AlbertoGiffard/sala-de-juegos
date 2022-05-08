@@ -14,6 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireModule } from '@angular/fire/compat';
 import { AuthService } from './auth/services/auth.service';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,8 +31,10 @@ import { AuthService } from './auth/services/auth.service';
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    AngularFirestoreModule,
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),

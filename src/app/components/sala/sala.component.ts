@@ -30,17 +30,17 @@ export class SalaComponent implements OnInit {
     },
     {
       'id': 3,
-      'name': 'Gta',
-      'description': 'Encuentra la palabra correcta en la menor cantidad de intentos posibles.',
-      'image': '../../assets/ahorcado.jpg',
-      'link': '/sala/ahorcado'
+      'name': 'Preguntados',
+      'description': '¿Te consideras que sabes de todo un poco? pruebalo acá.',
+      'image': '../../assets/preguntados/preguntados.jpg',
+      'link': '/sala/preguntado'
     },
     {
       'id': 4,
-      'name': 'Fifa',
-      'description': 'Encuentra la palabra correcta en la menor cantidad de intentos posibles.',
-      'image': '../../assets/ahorcado.jpg',
-      'link': '/sala/ahorcado'
+      'name': 'Tetris',
+      'description': 'El clásico juego que conoces ahora en tu sala de juegos.',
+      'image': '../../assets/tetris/tetris.jpg',
+      'link': '/sala/tetris'
     },
   ]
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FirebaseError } from 'firebase/app';
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('')
   })
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private auth: Auth) {
     this.errorMessage = "No se pudo crear el usuario de forma correcta verifique los datos.";
   }
 
@@ -32,7 +33,7 @@ export class RegisterComponent implements OnInit {
     const { name, email, password } = this.registerForm.value;
 
     try {
-      const user = await this.authService.register(name, email, password);
+      const user = await this.authService.register(name, email, password);          
 
       if (user) {
         //redirect to home

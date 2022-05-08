@@ -5,6 +5,7 @@ import { SalaRoutingModule } from './sala-routing.module';
 import { SalaComponent } from './sala.component';
 import { ChatComponent } from '../chat/chat.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LoadingComponent } from 'src/app/shared/loading/loading.component';
 
 
 @NgModule({

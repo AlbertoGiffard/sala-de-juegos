@@ -27,6 +27,7 @@ const routes: Routes = [
     path: 'sala', 
     loadChildren: () => import('./components/sala/sala.module').then(m => m.SalaModule) 
   },
+  { path: 'quiz', loadChildren: () => import('./components/quiz/quiz.module').then(m => m.QuizModule) },
   {
     path: '**',
     redirectTo: ''

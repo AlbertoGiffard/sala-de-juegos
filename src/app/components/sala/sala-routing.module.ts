@@ -8,7 +8,9 @@ const routes: Routes = [
     component: SalaComponent 
   },
   { path: 'ahorcado', loadChildren: () => import('./ahorcado/ahorcado.module').then(m => m.AhorcadoModule) },
-  { path: 'mayorMenor', loadChildren: () => import('./mayor-menor/mayor-menor.module').then(m => m.MayorMenorModule) }
+  { path: 'mayorMenor', loadChildren: () => import('./mayor-menor/mayor-menor.module').then(m => m.MayorMenorModule) },
+  { path: 'preguntado', loadChildren: () => import('./preguntado/preguntado.module').then(m => m.PreguntadoModule) },
+  { path: 'tetris', loadChildren: () => import('./tetris/tetris.module').then(m => m.TetrisModule) }
 ];
 
 @NgModule({

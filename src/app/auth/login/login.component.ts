@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FirebaseError } from 'firebase/app';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -12,13 +13,18 @@ import { AuthService } from '../services/auth.service';
   providers: [ AuthService ]
 })
 export class LoginComponent implements OnInit {
-  loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl('')
-  });
-
+  created: boolean;
+  errorMessage: string;
+  loginForm: FormGroup;
+  
   constructor(private authService: AuthService, private router: Router, private auth: Auth) { 
-    
+    this.loginForm = new FormGroup({
+      email: new FormControl(''),
+      password: new FormControl('')
+    });
+
+    this.errorMessage = "No se pudo loguear al usuario de forma correcta verifique los datos.";
+    this.created = false;
   }
 
   ngOnInit(): void {
@@ -46,13 +52,14 @@ export class LoginComponent implements OnInit {
 
       if (user) {
         //redirect to home
-        this.router.navigate(['/sala']);
-        console.log(this.auth.currentUser?.metadata.lastSignInTime);
-        
+        this.router.navigate(['/sala']);        
       }
     } catch (error) {
-      console.log("Hubo un error al intentar loguear");
-      
+      if (error instanceof FirebaseError) {
+        console.log(error.code);
+        this.errorMessage = this.convertMessage(error.code);
+        this.created = true;
+      }      
     }
   }
 
@@ -61,6 +68,32 @@ export class LoginComponent implements OnInit {
       email: 'batman@gmail.com',
       password: '123456'
     }) 
+  }
+
+  convertMessage(code: string): string {
+    switch (code) {
+      case 'auth/user-disabled': {
+        return 'Usuario deshabilitado.';
+      }
+      case 'auth/user-not-found': {
+        return 'Usuario no encontrado.';
+      }
+      case 'auth/wrong-password': {
+        return 'Password incorrecto intente nuevamente.';
+      }
+      case 'auth/email-already-in-use': {
+        return 'Usuario ya creado.';
+      }
+      case 'auth/weak-password': {
+        return 'Error, password debil, minimo 6 digitos.';
+      }
+      case 'auth/invalid-email': {
+        return 'Error, mail Invalido.';
+      }
+      default: {
+        return 'No se pudo crear el usuario de forma correcta verifique los datos.';
+      }
+    }
   }
 
 }
